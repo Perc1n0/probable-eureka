@@ -1,5 +1,9 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.members = True  # 사용자가 서버에 입장할 때 이벤트를 트리거하기 위해 필요한 설정
@@ -15,4 +19,4 @@ async def on_member_join(member):
     except discord.errors.Forbidden:
         print(f"{member.name} 님에게 DM을 보낼 수 없습니다.")  # DM을 보내지 못할 경우 오류 메시지 출력
 
-bot.run('YOUR_BOT_TOKEN')  # 봇의 토큰으로 바꿔주세요
+bot.run(os.getenv('DISCORD_TOKEN))  # 봇의 토큰으로 바꿔주세요
