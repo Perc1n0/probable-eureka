@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: discord-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"  # requirements.txt에서 필요한 라이브러리 설치
+    startCommand: "python bot.py"  # 봇이 실행될 파일 명 (예: bot.py)
+    plan: free  # 무료 플랜
+    branches:
+      - main  # main 브랜치에서만 배포
